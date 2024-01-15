@@ -37,7 +37,9 @@ public class InternalCRMClientConnection  {
         InternalCRMService.Client client = new InternalCRMService.Client(protocol);
         List<InternalLeadDto> listLeads = new ArrayList<>();
         try  {
-            listLeads = client.findLeadsByDate(LocalDateTime.MIN.toString(),LocalDateTime.MAX.toString());
+        	String minDate = LocalDateTime.MIN.toString().split("T")[0];
+        	String maxDate = LocalDateTime.MAX.toString().split("T")[0];
+            listLeads = client.findLeadsByDate(minDate,maxDate);
         }catch(TException e){
             e.printStackTrace();
         }
