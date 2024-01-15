@@ -22,6 +22,8 @@ public class SalesforceCRMDataConverter implements CRMDataConverter
         String city ="";
         String country = "";
         String postalCode = "";
+        String state = "";
+
         
         //Suite de conditions pour traiter les paramètres ayant besoin d'être uniformisés pour le reste de l'application 
         if(dataType.get("AnnualRevenue")!=null) {
@@ -39,6 +41,9 @@ public class SalesforceCRMDataConverter implements CRMDataConverter
         if(dataType.get("PostalCode")!=null) {
         	postalCode = (String)dataType.get("PostalCode");
         }
+        if(dataType.get("State")!=null) {
+        	state = (String)dataType.get("State");
+        }
       
       
 
@@ -47,7 +52,7 @@ public class SalesforceCRMDataConverter implements CRMDataConverter
 		ModelTO model = new ModelTO((String) dataType.get("FirstName"), (String) dataType.get("LastName"),
 		revenue,
 		 (String) dataType.get("Phone"), street, postalCode,city, country, (String) dataType.get("CompanyName"),
-		   LocalDateTime.parse((String)dataType.get("CreatedDate"),formatter), (String) dataType.get("State"));
+		   LocalDateTime.parse((String)dataType.get("CreatedDate"),formatter), state);
 		
 		return model;
 	}

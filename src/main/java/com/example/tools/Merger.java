@@ -28,7 +28,6 @@ public class Merger {
 		
 		
 		List<ModelTO> clientsToMerge = salesforceClient.getAllUsers();
-		
 		internalClient.addUsers(clientsToMerge);
 		internalDatas = internalClient.getAllUsers();
 		System.out.println("----------------------------------\n");
